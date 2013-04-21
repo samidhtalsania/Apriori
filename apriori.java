@@ -167,6 +167,7 @@ class apriori{
 
 				second = table.get(j);
 				String tempstr = first + second ;
+				tempstr = checkUnique(tempstr) ;
 				temp.add(tempstr);
 
 
@@ -256,5 +257,43 @@ class apriori{
 			
 		}
 	}
+	
+	public static String checkUnique(String temp) {
+
+
+			char tempStr[] = temp.toCharArray() ;
+			char tempChar[] = new char[tempStr.length] ;
+
+			//   12131213
+			tempChar[0] = tempStr[0] ;
+			int count = 1 ;
+			char x;
+
+			for (int i=0 ; i<tempStr.length-1 ;i++ ) {
+				
+				for (int j=i+1 ; j<tempStr.length ; j++ ) {
+					
+					// if (tempStr[j] == '0') {
+					// 	break ;
+					// }
+
+					if ( tempStr[i] == tempStr[j] ) {
+						tempStr[j] = '0' ;
+					}
+				}
+			}
+
+			
+
+			for (int i=0,j=0 ; i<tempStr.length ;i++ ) {
+				if (tempStr[i] != '0') {
+					tempChar[j++] = tempStr[i] ;
+				}
+			}
+
+			temp = new String(tempChar) ;
+
+			return temp ;
+		}
 }
 
