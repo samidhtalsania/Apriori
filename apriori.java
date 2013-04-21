@@ -271,15 +271,19 @@ class apriori{
 
 			for (int i=0 ; i<tempStr.length-1 ;i++ ) {
 				
-				for (int j=i+1 ; j<tempStr.length ; j++ ) {
+				if (tempStr[i] != '0') {
+						
 					
-					// if (tempStr[j] == '0') {
-					// 	break ;
-					// }
+					for (int j=i+1 ; j<tempStr.length ; j++ ) {
+						
+						
 
-					if ( tempStr[i] == tempStr[j] ) {
-						tempStr[j] = '0' ;
+						if ( tempStr[i] == tempStr[j] ) {
+							tempStr[j] = '0' ;
+						}
 					}
+
+					
 				}
 			}
 
